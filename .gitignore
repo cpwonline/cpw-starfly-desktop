@@ -1,0 +1,17 @@
+*.depend
+*.layout
+obj/
+bin/
+Debug/
+debug/
+build/
+Build/
+Release/
+*~
+~*
+*.cbp
+*.geany
+*.anjuta
+*.db
+*.swp
+*.tags
