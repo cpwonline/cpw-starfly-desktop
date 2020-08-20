@@ -25,10 +25,13 @@
 #ifndef CPW_NOTIFICATIONS_H
 #define CPW_NOTIFICATIONS_H
 
+#include <giomm-2.4/giomm.h>
+
 class CPWNotifications
 {
 	public:
 		CPWNotifications();
+		void ShowNotification_();
 			
 	private:
 		/* add your private declarations */

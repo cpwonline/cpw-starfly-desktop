@@ -27,7 +27,17 @@
 
 CPWNotifications::CPWNotifications()
 {
-	
+
 }
 
+void CPWNotifications::ShowNotification_()
+{
+	auto Application = Gio::Application::create("hello.world", Gio::APPLICATION_FLAGS_NONE);
+	Application->register_application();
+	auto Notification = Gio::Notification::create("Hello world");
+	Notification->set_body("This is an example notification.");
+	auto Icon = Gio::ThemedIcon::create("dialog-information");
+	Notification->set_icon (Icon);
+	Application->send_notification(Notification);
+}
 
