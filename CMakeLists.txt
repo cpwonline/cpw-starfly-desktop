@@ -15,3 +15,6 @@ target_include_directories(
     ${PROJECT_NAME} PUBLIC
     "${PROJECT_BINARY_DIR}"
 )
+
+enable_testing()
+add_subdirectory(tests)
