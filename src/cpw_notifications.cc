@@ -36,9 +36,6 @@ CPWNotifications::CPWNotifications(char* id_application, char* title_notificatio
 	
 	ObjectNotification_ = Gio::Notification::create(title_notification_);
 	ObjectNotification_->set_body(body_notification_);
-	
-	ObjectIcon_ = Gio::ThemedIcon::create(icon_notification_);
-	ObjectNotification_->set_icon(ObjectIcon_);
 }
 
 void CPWNotifications::ShowNotification_()
@@ -46,3 +43,14 @@ void CPWNotifications::ShowNotification_()
 	ObjectApplication_->send_notification(ObjectNotification_);
 }
 
+void CPWNotifications::AddThemedIcon_()
+{
+	ObjectThemedIcon_ = Gio::ThemedIcon::create(icon_notification_);
+	ObjectNotification_->set_icon(ObjectThemedIcon_);
+}
+
+void CPWNotifications::AddIconSrc_()
+{
+	ObjectIcon_ = Gio::Icon::create(icon_notification_);
+	ObjectNotification_->set_icon(ObjectIcon_);
+}

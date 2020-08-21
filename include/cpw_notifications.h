@@ -36,13 +36,16 @@ class CPWNotifications
 		CPWNotifications(char* id_application, char* title_notification, char* body_notification, char* icon_notification);
 		void ReceiveData_(char* id_application, char* title_notification, char* body_notification, char* icon_notification);
 		void ShowNotification_();
+		void AddIconSrc_();
+		void AddThemedIcon_();
 			
 	private:
 		char* id_application_, * title_notification_;
 		char* body_notification_, * icon_notification_;
 		Glib::RefPtr<Gio::Application> ObjectApplication_;
 		Glib::RefPtr<Gio::Notification> ObjectNotification_;
-		Glib::RefPtr<Gio::ThemedIcon> ObjectIcon_;
+		Glib::RefPtr<Gio::ThemedIcon> ObjectThemedIcon_;
+		Glib::RefPtr<Gio::Icon> ObjectIcon_;
 };
 
 #endif /* CPW_NOTIFICATIONS_H */ 
