@@ -26,6 +26,7 @@
 #define CPW_NOTIFICATIONS_H
 
 #include <giomm-2.4/giomm.h>
+#include "Config.h"
 
 class CPWNotifications
 {
