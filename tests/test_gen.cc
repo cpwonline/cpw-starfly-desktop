@@ -22,6 +22,7 @@ class TestGen : public CppUnit::TestFixture
 {
 	CPPUNIT_TEST_SUITE(TestGen);
 	CPPUNIT_TEST(testViewNotification_);
+	CPPUNIT_TEST(testViewVersionSoftware_);
 	CPPUNIT_TEST_SUITE_END();
 
 	public:
@@ -30,6 +31,7 @@ class TestGen : public CppUnit::TestFixture
 
 	protected:
 		void testViewNotification_(void);
+		void testViewVersionSoftware_(void);
 
 	private:
 		CPWNotifications *mTestObj;
@@ -39,12 +41,22 @@ class TestGen : public CppUnit::TestFixture
 
 void TestGen::testViewNotification_(void)
 {
-    CPPUNIT_ASSERT(true == mTestObj->ShowNotification_());
+	mTestObj->ShowNotification_();
+	//	"org.example", "Mi titulo", "Informacion importante", ""
+	//);
+    CPPUNIT_ASSERT(true);
+}
+
+void TestGen::testViewVersionSoftware_(void)
+{
+	CPPUNIT_ASSERT(0 == cpw_notifications_VERSION_MAJOR);
+	CPPUNIT_ASSERT(0 == cpw_notifications_VERSION_MINOR);
+	CPPUNIT_ASSERT(1 == cpw_notifications_VERSION_PATCH);
 }
 
 void TestGen::setUp(void)
 {
-    mTestObj = new CPWNotifications();
+    mTestObj = new CPWNotifications("org.example", "Mi titulo", "Informacion importante", "dialog-information");
 }
 
 void TestGen::tearDown(void)
