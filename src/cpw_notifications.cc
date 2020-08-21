@@ -29,16 +29,16 @@ CPWNotifications::CPWNotifications(char* id_application, char* title_notificatio
 	id_application_(id_application),
 	title_notification_(title_notification),
 	body_notification_(body_notification),
-	icon_notification_(body_notification)
+	icon_notification_(icon_notification)
 {
 	ObjectApplication_ = Gio::Application::create(id_application_, Gio::APPLICATION_FLAGS_NONE);
 	ObjectApplication_->register_application();
 	
-	ObjectNotification_ = Gio::Notification::create(body_notification_);
+	ObjectNotification_ = Gio::Notification::create(title_notification_);
 	ObjectNotification_->set_body(body_notification_);
 	
 	ObjectIcon_ = Gio::ThemedIcon::create(icon_notification_);
-	ObjectNotification_->set_icon (ObjectIcon_);
+	ObjectNotification_->set_icon(ObjectIcon_);
 }
 
 void CPWNotifications::ShowNotification_()
