@@ -7,4 +7,4 @@ link_directories(CPPUNIT_LIBRARY_DIRS)
 add_executable(test_gen test_gen.cc)
 add_test(TestGen test_gen)
 
-target_link_libraries(test_gen ${CPPUNIT_LIBRARIES} cpw_notifications ${GIOMM_LIBRARIES})
+target_link_libraries(test_gen ${CPPUNIT_LIBRARIES} cpw_notifications ${GIOMM_LIBRARIES} ${GLIBMM_LIBRARIES})
