@@ -1,0 +1,2 @@
+#define cpw_notifications_VERSION_MAJOR @cpw_notifications_VERSION_MAJOR@
+#define cpw_notifications_VERSION_MINOR @cpw_notifications_VERSION_MINOR@
