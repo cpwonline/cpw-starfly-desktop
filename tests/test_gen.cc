@@ -56,7 +56,7 @@ void TestGen::testViewVersionSoftware_(void)
 
 void TestGen::setUp(void)
 {
-    mTestObj = new CPWNotifications("org.example", "Mi titulo", "Informacion importante", "dialog-information");
+    mTestObj = new CPWNotifications((char*)"org.example", (char*)"battery-low", (char*)"Informacion importante", (char*)"battery-low");
 }
 
 void TestGen::tearDown(void)
