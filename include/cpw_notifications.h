@@ -32,10 +32,16 @@ class CPWNotifications
 {
 	public:
 		CPWNotifications();
-		bool ShowNotification_();
+		CPWNotifications(char* id_application, char* title_notification, char* body_notification, char* icon_notification);
+		void ReceiveData_(char* id_application, char* title_notification, char* body_notification, char* icon_notification);
+		void ShowNotification_();
 			
 	private:
-		/* add your private declarations */
+		char* id_application_, * title_notification_;
+		char* body_notification_, * icon_notification_;
+		static Glib::RefPtr<Gio::Application> ObjectApplication_;
+		static Glib::RefPtr<Gio::Notification> ObjectNotification_;
+		static Glib::RefPtr<Gio::Icon> ObjectIcon_;
 };
 
 #endif /* CPW_NOTIFICATIONS_H */ 
