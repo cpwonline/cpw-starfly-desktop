@@ -25,6 +25,7 @@
 #ifndef CPW_NOTIFICATIONS_H
 #define CPW_NOTIFICATIONS_H
 
+#include <string>
 #include <giomm-2.4/giomm.h>
 #include "Config.h"
 
@@ -39,9 +40,9 @@ class CPWNotifications
 	private:
 		char* id_application_, * title_notification_;
 		char* body_notification_, * icon_notification_;
-		static Glib::RefPtr<Gio::Application> ObjectApplication_;
-		static Glib::RefPtr<Gio::Notification> ObjectNotification_;
-		static Glib::RefPtr<Gio::Icon> ObjectIcon_;
+		Glib::RefPtr<Gio::Application> ObjectApplication_;
+		Glib::RefPtr<Gio::Notification> ObjectNotification_;
+		Glib::RefPtr<Gio::ThemedIcon> ObjectIcon_;
 };
 
 #endif /* CPW_NOTIFICATIONS_H */ 
