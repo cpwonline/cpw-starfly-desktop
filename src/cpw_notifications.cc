@@ -25,20 +25,24 @@
 #include "cpw_notifications.h"
 
 
-CPWNotifications::CPWNotifications()
+CPWNotifications::CPWNotifications(char* id_application, char* title_notification, char* body_notification, char* icon_notification) :
+	id_application_(id_application),
+	title_notification_(title_notification),
+	body_notification_(body_notification),
+	icon_notification_(body_notification)
 {
-
+	ObjectApplication_ = Gio::Application::create(id_application_, Gio::APPLICATION_FLAGS_NONE);
+	ObjectApplication_->register_application();
+	
+	ObjectNotification_ = Gio::Notification::create(body_notification_);
+	ObjectNotification_->set_body(body_notification_);
+	
+	ObjectIcon_ = Gio::ThemedIcon::create(icon_notification_);
+	ObjectNotification_->set_icon (ObjectIcon_);
 }
 
-bool CPWNotifications::ShowNotification_()
+void CPWNotifications::ShowNotification_()
 {
-	auto Application = Gio::Application::create("hello.world", Gio::APPLICATION_FLAGS_NONE);
-	Application->register_application();
-	auto Notification = Gio::Notification::create("Hello world");
-	Notification->set_body("This is an example notification.");
-	auto Icon = Gio::ThemedIcon::create("dialog-information");
-	Notification->set_icon (Icon);
-	Application->send_notification(Notification);
-	return true;
+	ObjectApplication_->send_notification(ObjectNotification_);
 }
 
