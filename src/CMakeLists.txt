@@ -12,3 +12,5 @@ find_package(PkgConfig REQUIRED)
 pkg_search_module(GIOMM REQUIRED giomm-2.4)
 include_directories(${GIOMM_INCLUDE_DIRS})
 link_directories(GIOMM_LIBRARY_DIRS)
+
+target_link_libraries(cpw_notifications ${GIOMM_LIBRARIES})
