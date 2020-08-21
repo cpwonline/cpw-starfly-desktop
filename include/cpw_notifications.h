@@ -32,7 +32,7 @@ class CPWNotifications
 {
 	public:
 		CPWNotifications();
-		void ShowNotification_();
+		bool ShowNotification_();
 			
 	private:
 		/* add your private declarations */
