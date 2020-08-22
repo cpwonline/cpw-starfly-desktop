@@ -45,7 +45,6 @@ class CPWNotifications
 		Glib::RefPtr<Gio::Application> ObjectApplication_;
 		Glib::RefPtr<Gio::Notification> ObjectNotification_;
 		Glib::RefPtr<Gio::ThemedIcon> ObjectThemedIcon_;
-		Glib::RefPtr<Gio::Icon> ObjectIcon_;
 };
 
 #endif /* CPW_NOTIFICATIONS_H */ 
