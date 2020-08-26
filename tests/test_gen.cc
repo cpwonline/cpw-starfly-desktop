@@ -26,6 +26,7 @@ class TestGen : public CppUnit::TestFixture
 	CPPUNIT_TEST_SUITE_END();
 
 	public:
+		TestGen();
 		void setUp(void);
 		void tearDown(void);
 
@@ -39,12 +40,14 @@ class TestGen : public CppUnit::TestFixture
 
 //-----------------------------------------------------------------------------
 
+TestGen::TestGen(){}
+
 void TestGen::testViewNotification_(void)
 {
+	mTestObj->ReceiveData_((char*)"app.id.com", (char*)"nombre", (char*)"cuerpo", (char*)"battery-low");
+	CPPUNIT_ASSERT(true == mTestObj->PrepareNotification_());
+	mTestObj->AddThemedIcon_();
 	mTestObj->ShowNotification_();
-	//	"org.example", "Mi titulo", "Informacion importante", ""
-	//);
-    CPPUNIT_ASSERT(true);
 }
 
 void TestGen::testViewVersionSoftware_(void)
@@ -56,7 +59,7 @@ void TestGen::testViewVersionSoftware_(void)
 
 void TestGen::setUp(void)
 {
-    mTestObj = new CPWNotifications((char*)"org.example", (char*)"battery-low", (char*)"Informacion importante", (char*)"battery-low");
+    mTestObj = new CPWNotifications();
 }
 
 void TestGen::tearDown(void)
