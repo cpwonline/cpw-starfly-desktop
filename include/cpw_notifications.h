@@ -21,10 +21,11 @@
  * 
  */
 
-
+ 
 #ifndef CPW_NOTIFICATIONS_H
 #define CPW_NOTIFICATIONS_H
 
+#include <cstdlib>
 #include <string>
 #include <giomm-2.4/giomm.h>
 #include "Config.h"
@@ -33,11 +34,17 @@ class CPWNotifications
 {
 	public:
 		CPWNotifications();
-		CPWNotifications(char* id_application, char* title_notification, char* body_notification, char* icon_notification);
-		void ReceiveData_(char* id_application, char* title_notification, char* body_notification, char* icon_notification);
+		CPWNotifications(char id_application[], char title_notification[], char body_notification[], char icon_notification[]);
+		~CPWNotifications();
+		char* get_id_application();
+		char* get_title_notification();
+		char* get_body_notification();
+		char* get_icon_notification();
+		void ReceiveData_(char id_application[], char title_notification[], char body_notification[], char icon_notification[]);
 		void ShowNotification_();
-		void AddIconSrc_();
 		void AddThemedIcon_();
+		bool PrepareNotification_();
+		void AllocateMemory_();
 			
 	private:
 		char* id_application_, * title_notification_;
