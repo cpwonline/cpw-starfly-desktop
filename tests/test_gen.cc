@@ -33,9 +33,17 @@ TEST_F(TestGen, ViewVersionSoftware)
     ASSERT_EQ(1, cpw_notifications_VERSION_PATCH);
 }
 
-TEST_F(TestGen, ViewNotification)
+TEST_F(TestGen, ViewFirstNotification)
 {
 	TestObj_->ReceiveData_((char*)"app.id.com", (char*)"nombre", (char*)"cuerpo", (char*)"battery-low");
+	ASSERT_EQ(true, TestObj_->PrepareNotification_());
+	TestObj_->AddThemedIcon_();
+	TestObj_->ShowNotification_();
+}
+
+TEST_F(TestGen, ViewSecondNotification)
+{
+	TestObj_->ReceiveData_((char*)"app.id.com", (char*)"Otro nombre", (char*)"Otro cuerpo", (char*)"dialog-information");
 	ASSERT_EQ(true, TestObj_->PrepareNotification_());
 	TestObj_->AddThemedIcon_();
 	TestObj_->ShowNotification_();
