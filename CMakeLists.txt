@@ -1,7 +1,7 @@
 # Fundamental
 
 cmake_minimum_required(VERSION 3.10)
-project(cpw_notifications VERSION 0.0.1)
+project(cpw_notifications VERSION 0.0.27)
 configure_file(Config.h.in Config.h)
 
 set(CMAKE_CXX_STANDARD 17)
